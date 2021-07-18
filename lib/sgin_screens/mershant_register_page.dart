@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:lec_13_exc/helpers/sharedPrefrencess_helper.dart';
 import '../router/app_router.dart';
 
-import '../globals.dart';
 import '../home_screen.dart';
 import '../models/form_user.dart';
 
@@ -154,7 +154,8 @@ class _MershantRegisterState extends State<MershantRegister> {
                   category: category,
                   shopAddress: shopAddress,
                 );
-                Globals.globals.formUser = formUser;
+                SpHelper.spHelper.saveUser(formUser);
+                // Globals.globals.formUser = formUser;
                 // Navigator.of(context)
                 //     .pushNamedAndRemoveUntil('/home', (route) => false);
                 // Navigator.of(context)

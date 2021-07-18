@@ -23,7 +23,39 @@ class FormUser {
     @required this.category,
     @required this.shopAddress,
   });
-
-  
-
+  factory FormUser.map(Map map) {
+    if (map['isMershant']) {
+      return FormUser.mershant(
+        email: map['email'],
+        password: map['password'],
+        shopName: map['shopName'],
+        bio: map['bio'],
+        category: map['category'],
+        shopAddress: map['shopAddress'],
+      );
+    } else {
+      return FormUser.customer(
+        email: map['email'],
+        password: map['password'],
+      );
+    }
+  }
+  Map<String, dynamic> toMap() {
+    Map map = this.userType == UserType.customer
+        ? {
+            'isMershant': false,
+            'email': this.email,
+            'password': this.password,
+          }
+        : {
+            'isMershant': true,
+            'email': this.email,
+            'password': this.password,
+            'shopName': this.shopName,
+            'shopAddress': this.shopAddress,
+            'bio': this.bio,
+            'category': this.category,
+          };
+    return {...map};
+  }
 }

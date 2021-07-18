@@ -8,19 +8,21 @@ class AppRouter {
 
   GlobalKey<NavigatorState> navKey = GlobalKey<NavigatorState>();
 
-  pushFunction(Widget widget){
-    navKey.currentState.push(MaterialPageRoute(builder: (context){
-      return widget;
-    },),);
+  pushFunction(Widget widget) {
+    navKey.currentState.push(
+      MaterialPageRoute(
+        builder: (context) {
+          return widget;
+        },
+      ),
+    );
   }
-  pushNamedFunction(String route){
+
+  pushNamedFunction(String route) {
     navKey.currentState.pushNamed(route);
   }
 
-
-
   Route onGenerateRoute(RouteSettings routeSittings) {
-
     switch (routeSittings.name) {
       case '/':
         return MaterialPageRoute(
@@ -28,6 +30,11 @@ class AppRouter {
         );
         break;
       case '/home':
+        return MaterialPageRoute(
+          builder: (_) => HomeScreen(),
+        );
+        break;
+      case '/splach':
         return MaterialPageRoute(
           builder: (_) => HomeScreen(),
         );

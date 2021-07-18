@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lec_13_exc/helpers/sharedPrefrencess_helper.dart';
 import 'constants/enums.dart';
 
 import 'globals.dart';
@@ -23,7 +24,7 @@ class HomeScreen extends StatelessWidget {
             child: Text('SingOut'),
             onPressed: () {
               // Navigator.of(context).pop('hello this message from home');
-              Navigator.of(context).pop();
+              SpHelper.spHelper.signOut();
             },
           ),
         ],

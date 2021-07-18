@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:lec_13_exc/sgin_screens/splach_screen.dart';
+import 'helpers/sharedPrefrencess_helper.dart';
 import 'router/app_router.dart';
-import 'sgin_screens/main_register_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await SpHelper.spHelper.initSharedPreferences();
+
   runApp(MyApp());
 }
 
@@ -19,7 +24,11 @@ class MyApp extends StatelessWidget {
       // },
       onGenerateRoute: AppRouter.router.onGenerateRoute,
       // onUnknownRoute: (RouteSettings r){},
-      initialRoute: MainRegister.routeName,
+      home: SplachScreen(),
+      // initialRoute: SplachScreen.routeName,
     );
   }
 }
+Git commit -m "addign local storage "
+
+Git push origin master
