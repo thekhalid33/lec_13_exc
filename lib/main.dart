@@ -29,6 +29,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-Git commit -m "addign local storage "
-
-Git push origin master
